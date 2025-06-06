@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Predicting Optimal Fertilizers</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<nav>
+							<a href="index.html">Home</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<div class="header-grid">
+										<header class="major">
+											<h1>Predicting Calories Expenditure</h1>
+											<h2>How many calories were burned during a workout ?</h2>
+										</header>
+										<div class="header-image">
+											<img src="images/piclogocalorie.png" alt="Calorie logo" />
+										</div>
+									</div>
+									<p>The objective of this prediction task is to estimate the number of calories burned during a workout session based on various input features such as physical activity data and physiological metrics. Accurately predicting calorie expenditure is important for applications in health monitoring, fitness tracking, and personalized training plans.</p>
+									<p>The evaluation metric used for this task is Root Mean Squared Logarithmic Error (RMSLE), which is particularly suitable when the target variable spans several orders of magnitude and when it's important to penalize underestimates more than overestimates. RMSLE ensures that small differences in predicted versus actual values have less impact when both values are small, while larger discrepancies are penalized proportionally, especially when predicting higher calorie expenditures.</p>
+									<span class="image formula rmsle main"><img src="images/picrmsle.png" alt="" /></span>
+									<p>Where : </p>
+									<ul>
+  										<li><em>n</em> is the total number of observations in the test set.</li>
+  										<li><em>y_pred</em> is the predicted value of the target for instance (i) (the one with a hat)</li>
+  										<li><em>y</em>  is the actual value of the target for instance (i)</li>
+									</ul>
+									<h3>Modeling Approach Overview: </h3>
+									<p>My approach combined advanced feature engineering, CatBoost modeling, 5-fold cross-validation, a hill climbing optimization strategy, and rigorous prevention of data leakage.</p>
+									<p><strong>Feature Engineering:</strong> I began with thorough exploratory data analysis to uncover meaningful relationships between variables. Based on these insights, I created new features—such as linear combinations and interactions—that enhanced the model's ability to capture complex patterns within the data as for example : IMC, BSA, Log_Weight, Burned_Calories and etc.</p>
+									<p><strong>Modeling with CatBoost:</strong> I've selected a few Regressors and run my tests on each one of them : CatBoost, XGB, LGBM and TabNet. Finally, I used CatBoost due to its robustness with categorical features and its built-in prevention of data leakage via ordered boosting. This technique ensures that during training, future data points are not used to make predictions, thereby supporting better generalization on unseen data.</p>
+									<p><strong>Cross-Validation & Optimization:</strong> I used a 5-fold KFold cross-validation strategy to obtain a reliable estimate of model performance and to reduce overfitting. To further fine-tune the model, I applied a hill climbing approach to iteratively optimize hyperparameters and improve RMSLE.</p>
+									<p><strong>Data Leakage Prevention:</strong> I took particular care to avoid data leakage by ensuring that all feature transformations and encodings were based solely on the training folds, with no information leakage from the validation or test sets.</p>
+									<p></p>
+									<p></p>
+
+
+									<h3>Results : </h3>
+									<p>By combining these techniques, I was able to develop a highly predictive model that performed competitively in the leaderboard, with a well-controlled RMSLE and strong generalization performance.</p>
+									<ul>
+										<li><strong>Final Rank :</strong> 1204/4318</li>
+										<li><strong>RMSLE Score :</strong> 0.05914</li>
+										<li><strong>Best RMSLE Score :</strong> 0.05841</li>
+									</ul>
+								</div>
+							</section>
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<div class="contact-method">
+									<span class="icon brands alt fa-github"></span>
+									<h3>Github Project</h3>
+									<a href="https://github.com/Gaby-gif/IMDbApp.github.io">IMDbApp.github.io</a>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="mailto:gabriel.dereims@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="https://github.com/Gaby-gif" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/gabriel-dereims-45580a14b/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
