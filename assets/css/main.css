@@ -72,6 +72,59 @@ input, select, textarea {
 	appearance: none;
 }
 
+  .image.formula.main {
+    display: flex;
+    justify-content: center;
+    padding: 10px; /* Optionnel : ajoute un peu d'espace autour de l'image */
+  }
+
+  .image.formula.main img {
+    max-width: 40%; /* Ajuste cette valeur selon la taille souhaitée */
+    height: auto;
+    display: block;
+  }
+
+
+	.logo-list {
+    display: flex;
+    align-items: center; /* Aligne l’image et le texte verticalement */
+    gap: 10px; /* Espace entre l’image et le texte */
+  }
+
+  .image.logo img {
+    max-width: 100px; /* Taille de l’image, ajuste selon ton besoin */
+
+  }
+
+    .image.formula.rmsle.main {
+    display: flex;
+    justify-content: center;
+    padding: 10px; /* Optionnel : ajoute un peu d'espace autour de l'image */
+  }
+
+  .image.formula.rmsle.main img {
+    max-width: 50%; /* Ajuste cette valeur selon la taille souhaitée */
+    height: auto;
+    display: block;
+  }
+
+  .header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Deux colonnes : texte et image */
+  align-items: center;
+  gap: 20px; /* Espace entre les colonnes */
+}
+
+header.major {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-image img {
+  max-width: 250px; /* Ajuste selon ta mise en page */
+  height: auto;
+}
+
 /* Basic */
 
 	@-ms-viewport {
